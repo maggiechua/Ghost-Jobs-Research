@@ -1,0 +1,7 @@
+*.xlsx
+*.csv
+*.xls
+data/
+__pycache__/
+.ipynb_checkpoints/
+ghost_jobs_env/

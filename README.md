@@ -11,6 +11,7 @@ This folder contains two sub-folders: bls_data and data files.
 The bls_data contains a jupyter notebook file that loaded 2024 BLS OEWS data and then determined the top five most common occupations for the following sectors: Professional, Scientific, and Technical Services; Information; Retail Trade; Healthcare & Social Assistance; Finance & Insurance. For occupations that are cross-sector, the sector that had greater total employment retained that occupation, while the other sector had it replaced with the next highest ranked occupation. 
 
 #### data files
+The data files folder contains two additional sub-folders named midterm and pilot. The midterm is a preliminary data exploration of data collected for three sectors (Professional, Scientific, and Technical Services; Finance & Insurance; Retail Trade) for job postings scraped for one day (February 23, 2026). The pilot folder contains a jupyter notebook script used to test and finalize the data pipeline script, with the final code transferred to webscrape_script.py for automation through Windows Task Scheduler. 
 
 ## Data Sources
 - Bureau of Labor Statistics (BLS) OEWS
@@ -22,3 +23,7 @@ The bls_data contains a jupyter notebook file that loaded 2024 BLS OEWS data and
 ## How to Run
 
 ## Planned Updates
+- Cleaning and operationalizing all variables from data collected via constructed pipeline
+- Training and deploying a fine-tuned BERT model using HuggingFace
+- Finalizing dataset by adding BLS measures for March 2026 and performing regressions with Stata
+

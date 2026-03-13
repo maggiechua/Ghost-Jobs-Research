@@ -127,7 +127,7 @@ job_titles = np.array([
     {"jt_id": "ED", "occ_id": "ED", "title": "Editor"},
 ])
 
-current_dir = os.getcwd()
+current_dir = os.path.dirname(os.path.abspath(__file__))
 date = datetime.datetime.now().strftime("%Y-%m-%d")
 
 # function to scrape jobs across all labor markets and platforms
@@ -182,7 +182,8 @@ for m in markets:
                     os.makedirs(folder_path)
 
                 # write scraped data to csv file
-                jobs.to_csv(full_path, quoting=csv.QUOTE_ALL, escapechar="\\", index=False) # to_excel\
+                if not jobs.empty:
+                    jobs.to_csv(full_path, quoting=csv.QUOTE_ALL, escapechar="\\", index=False) # to_excel\
 
                 # print status message
                 print(f"Market: {m} Platform: {platforms[p]}  Jobs: {len(jobs)} Sector: {sector} Job Occ/Title: {occ}-{title}")

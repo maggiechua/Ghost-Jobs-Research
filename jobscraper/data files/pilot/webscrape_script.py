@@ -8,9 +8,9 @@ from jobspy import scrape_jobs
 
 # Variables for Platforms + Labor Markets
 platforms = {
-    "L": "linkedin",
+    # "L": "linkedin",
     "G": "glassdoor",
-    "I": "indeed"
+    # "I": "indeed"
 }
 markets = {
     "NY": "New York, NY" ,
@@ -72,14 +72,14 @@ occupations = {
 
 job_titles = np.array([
     # Finance & Insurance
-    {"jt_id": "SB", "occ_id": "SCFS", "title": "Stock Broker"},
+    {"jt_id": "ST", "occ_id": "SCFS", "title": "Securities Trader"},
     {"jt_id": "IB", "occ_id": "SCFS", "title": "Investment Banker"},
     {"jt_id": "ISA","occ_id": "ISA", "title": "Insurance Sales Agent"},
     {"jt_id": "FM", "occ_id": "FM", "title": "Financial Manager"},
     {"jt_id": "IA", "occ_id": "FIA", "title": "Investment Analyst"},
     {"jt_id": "FA", "occ_id": "FIA", "title": "Financial Analyst"},
     {"jt_id": "PFA","occ_id": "PFA", "title": "Personal Financial Advisor"},
-    {"jt_id": "CSR","occ_id": "CSR-FI", "title": "Customer Service Representative"}, #
+    {"jt_id": "CSR","occ_id": "CSR-FI", "title": "Customer Service Representative"}, 
 
     # Professional Scientific Technical Services 
     {"jt_id": "ACT","occ_id": "AAA", "title": "Accountant"},
@@ -156,8 +156,8 @@ for m in markets:
                         site_name=[platforms[p]], 
                         search_term=j['title'],
                         location=msa,
-                        results_wanted=100,
-                        hours_old=24,
+                        results_wanted=168,
+                        hours_old=52,
                         country_indeed='USA',
                         linkedin_fetch_description=True, # gets more info such as description, direct job url (slower)
                     )
@@ -169,12 +169,10 @@ for m in markets:
                         site_name=[platforms[p]],
                         search_term=j['title'],
                         location=msa,
-                        results_wanted=100,
-                        hours_old=24,
+                        results_wanted=168,
+                        hours_old=52,
                         country_indeed='USA',
-                        
                         linkedin_fetch_description=True, # gets more info such as description, direct job url (slower)
-                        # proxies=["208.195.175.46:65095", "208.195.175.45:65095", "localhost"],
                     )
                 
                 # if folder does not exist in local directory, create folder

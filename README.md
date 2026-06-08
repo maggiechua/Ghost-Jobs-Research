@@ -11,14 +11,14 @@ The Congressional Research Service (CRS) defines ghost jobs as online postings b
 - Python 3.12
 - Pandas (data cleaning and transformation)
 - Matplotlib (data visualization)
-- Playwright (used to determine if a job listing is still active autonomously)
+- Playwright (used to determine if a job listing is still active autonomously--works on a small dataset, but not at scale without rotating proxies to circumvent anti-bot measures)
 
 ### Repository Structure
 
 ### Limitations
 - Existing pipeline is set according to pre-defined BLS sectors and occupations that I used for this project, so it will require manual changes to the classification in the webscrape_script.py in their respective data structures
 - Raw data cannot be made accessible through the repository due to sheer volume (100,000+ raw observations) and due to webscraping operting within a legal grey area, a synthetic dataset is provided instead
-- Due to time and budget constraints, the calculation of listing age was done by the day a listing was checked subtracted by the day it was posted. For more accurate listing age variables, rotating proxies will need to be utilized to bypass anti-bot measures, allowing Playwright to determine listing age accurately and efficiently. 
+- Due to time and budget constraints, the calculation of listing age was done by the day a listing was checked subtracted by the day it was posted. While the check_links.py is able to check job listing status successfully for Glassdoor and Indeed, it cannot operate at scale without triggering anti-bot measures. 
 
 ### Future Work
 - Create an autonomous data pipeline following ETL principles that extracts and prepares data for analysis of job posting data for future studies

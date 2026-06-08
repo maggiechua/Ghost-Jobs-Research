@@ -13,16 +13,19 @@ The Congressional Research Service (CRS) defines ghost jobs as online postings b
 - Matplotlib (data visualization)
 - Playwright (used to determine if a job listing is still active autonomously)
 
+### Repository Structure
+
 ### Limitations
 - Existing pipeline is set according to pre-defined BLS sectors and occupations that I used for this project, so it will require manual changes to the classification in the webscrape_script.py in their respective data structures
 - Raw data cannot be made accessible through the repository due to sheer volume (100,000+ raw observations) and due to webscraping operting within a legal grey area, a synthetic dataset is provided instead
-- Due to time and budget constraints, the calculation of listing age was done by the day a listing was checked subtracted by the day it was posted. For more accurate listing age variables, rotating proxies will need to be utilized to bypass anti-bot measures, allowing Playwright to determine listing age accurately and efficiently.
+- Due to time and budget constraints, the calculation of listing age was done by the day a listing was checked subtracted by the day it was posted. For more accurate listing age variables, rotating proxies will need to be utilized to bypass anti-bot measures, allowing Playwright to determine listing age accurately and efficiently. 
 
-### Known Issues
-
+### Future Work
+- Create an autonomous data pipeline following ETL principles that extracts and prepares data for analysis of job posting data for future studies
+- Use a cloud provider (i.e. AWS or GCP) to store data at scale
+- Replicate research done by [Ng (2024)]([url](https://arxiv.org/abs/2410.21771)), creating high-quality labels to fine-tune a BERT model for predicting ghost job probability using the HuggingFace library
 
 ## Setup and Installation 
-
 ### How to Run
 1. Clone the repository:
 ```
@@ -32,12 +35,5 @@ git clone https://github.com/maggiechua/Ghost-Jobs-Research.git
 
 3. Create a folder called rawdata in your environment, so that when the webscrape_script.py is run, it will populate the folder with the collected job posting data
 
-## Repository Structure
 
-
-
-## Planned Updates
-- Cleaning and operationalizing all variables from data collected via constructed pipeline
-- Training and deploying a fine-tuned BERT model using HuggingFace
-- Finalizing dataset by adding BLS measures for March 2026 and performing regressions with Stata
 
